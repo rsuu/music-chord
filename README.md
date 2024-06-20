@@ -6,9 +6,9 @@
 use music_chord::*;
 
 fn main() {
-    let tonic = Note::new(Key::B);
     let mode = Mode::Ionian;
-    let scale = Scale::new(tonic).set_mode(mode);
+    let tonic = Note::new(Key::B);
+    let scale = Scale::new(mode, tonic);
     dbg!(&scale.display_line());
 
     let mut chord = scale.chord_by_degree(Chord::Triad, Degree::VII);
