@@ -1,0 +1,48 @@
+[package]
+name = "music-chord"
+edition = "2021"
+version= "0.1.0"
+authors = ["RSUU <rsuuyu@gmail.com>"]
+description = ""
+homepage = "https://crates.io/crates/music-chord"
+repository = "https://github.com/rsuu/music-chord"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+categories = []
+keywords = []
+
+#[lib]
+#crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+lto = "thin"
+opt-level = 2
+codegen-units = 1
+panic = "abort"
+overflow-checks = false
+debug = false
+debug-assertions = false
+incremental = false
+strip = true
+
+#[profile.release.package."*"]
+#opt-level = 2
+#codegen-units = 1
+#debug = false
+#debug-assertions = false
+#incremental = false
+#strip = true
+
+# REFS: https://doc.rust-lang.org/nightly/cargo/reference/profiles.html#overrides
+# Making dependencies in release mode and only my crate in debug mode.
+#[profile.dev.package."*"]
+#opt-level = 2
+#codegen-units = 1
+#debug = false
+#debug-assertions = false
+#incremental = false
+#strip = true
+
+[dependencies]
+
+[features]
